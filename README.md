@@ -15,7 +15,7 @@ Spider            爬虫代码
 
 **1.网页结构分析**
 
-"算法"书籍根据评论量排序的url   start为起始索引(page-1)*20    type为排序方式,S为按评论排序
+"算法"书籍根据评论量排序的url,start为起始索引(page-1)*20,type为排序方式,S为按评论排序
 
 https://book.douban.com/tag/算法?start=0&type=S
 
@@ -23,6 +23,7 @@ https://book.douban.com/tag/算法?start=0&type=S
 **2.返回数据**
 
 返回数据有三种方式:html文本,ajax动态加载,数据混淆
+
 幸运的是豆瓣读书使用的是html文本,难度较低,使用第三方库JSOUP操作更方便
 
 
@@ -42,7 +43,9 @@ https://book.douban.com/tag/算法?start=0&type=S
 **1.评论数1000**
 
 需求说明书籍要过滤掉评论数小于1000的数据,虽然查询方式是按评论排序,但我发现排序不是绝对准确,所以加了一层自己的过滤(cacheCount).
+
 如果书籍的评论数小于 1000/2=500,那么cacheCount加1.
+
 如果出现连续15本数据都小于500,则后面书籍的评论数出现大于1000的微乎其微,所以该线程爬取结束.
 
 **2.List<Book>排序**
